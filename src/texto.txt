@@ -1,0 +1,13 @@
+{puzzleCompletado && (
+          <>
+            <img
+              src={fotoPuzzle}
+              alt="Recuerdo"
+              className="fotoCompleta"
+            />
+
+            <h2>❤️ ¡Has reconstruido nuestro recuerdo! ❤️</h2>
+
+            <p>El progreso ya ha llegado al 40%</p>
+          </>
+        )}
