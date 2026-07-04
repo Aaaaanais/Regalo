@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 
 const mapa = [
-  ["⬛","⬛","⬛","⬛","⬛","⬛","⬛","⬛","⬛"],
-  ["⬛","❤️","⬜","⬜","⬛","⬜","⬜","⬜","⬛"],
-  ["⬛","⬛","⬛","⬜","⬛","⬜","⬛","⬜","⬛"],
-  ["⬛","⬜","⬜","⬜","⬜","⬜","⬛","⬜","⬛"],
-  ["⬛","⬜","⬛","⬛","⬛","⬜","⬛","⬜","⬛"],
-  ["⬛","⬜","⬜","⬜","⬛","⬜","⬜","⬜","⬛"],
-  ["⬛","⬛","⬛","⬜","⬛","⬛","⬛","⬜","⬛"],
-  ["⬛","⬜","⬜","⬜","⬜","⬜","⬜","👫","⬛"],
-  ["⬛","⬛","⬛","⬛","⬛","⬛","⬛","⬛","⬛"],
+["🟩","⬜","⬜","⬜","⬜","⬜","⬜","⬜","🟩"],
+["🟩","⚽","⬜","⬜","🟩","🟩","🟩","🟩","🟩"],
+["⬜","🟩","🟩","⬜","🟩","⬜","⬜","🟩","⬜"],
+["⬜","🟩","⬜","⬜","🟩","⬜","⬜","🟩","⬜"],
+["⬜","🟩","🟩","🟩","🟩","🟩","⬜","🟩","⬜"],
+["⬜","⬜","⬜","🟩","⬜","⬜","🟩","🟩","🟩"],
+["⬜","🟩","🟩","🟩","⬜","⬜","⬜","🟩","⬜"],
+["⬜","🟩","⬜","⬜","🟩","🟩","🟩","🥅","⬜"],
+["⬜","🟩","🟩","🟩","🟩","⬜","⬜","⬜","⬜"],
 ];
 
 export default function MazeGame({ onWin }) {
@@ -38,9 +38,9 @@ export default function MazeGame({ onWin }) {
 
     const casilla = mapa[nuevoY][nuevoX];
 
-    if (casilla === "⬛") return anterior;
+    if (casilla === "⬜") return anterior;
 
-    if (casilla === "👫") {
+    if (casilla === "🥅") {
       setWin(true);
     }
 
@@ -92,7 +92,7 @@ export default function MazeGame({ onWin }) {
     <div>
 
       <p>
-        Usa las flechas del teclado o los botones para llegar hasta 👫
+        Lleva el balón hasta la portería siguiendo el césped⚽🥅
       </p>
 
       <div className="maze">
@@ -103,9 +103,9 @@ export default function MazeGame({ onWin }) {
             let contenido = celda;
 
             if (player.x === x && player.y === y) {
-              contenido = "❤️";
-            } else if (celda === "❤️") {
-              contenido = "⬜";
+              contenido = "⚽";
+            } else if (celda === "⚽") {
+              contenido = "🟩";
             }
 
             return (
@@ -124,22 +124,34 @@ export default function MazeGame({ onWin }) {
       {!win && (
         <div className="controles">
 
-          <button onClick={() => mover(0, -1)}>
-            ⬆️
+          <button
+            className="intro-button controlButton"
+            onClick={() => mover(0, -1)}
+          >
+    ↑
           </button>
 
-          <div>
+          <div className="filaControles">
 
-            <button onClick={() => mover(-1, 0)}>
-              ⬅️
+            <button
+              className="intro-button controlButton"
+              onClick={() => mover(-1, 0)}
+            >
+      ←
             </button>
 
-            <button onClick={() => mover(0, 1)}>
-              ⬇️
+            <button
+              className="intro-button controlButton"
+              onClick={() => mover(0, 1)}
+            >
+      ↓
             </button>
 
-            <button onClick={() => mover(1, 0)}>
-              ➡️
+            <button
+              className="intro-button controlButton"
+              onClick={() => mover(1, 0)}
+            >
+      →
             </button>
 
           </div>
@@ -150,24 +162,25 @@ export default function MazeGame({ onWin }) {
       {win && (
         <div className="win">
 
-          <h2>❤️ ¡Nos hemos encontrado! ❤️</h2>
+          <h2>⚽ ¡GOOOOOL! ⚽</h2>
 
           <p>
-            Después de todos los caminos...
+            Has marcado el gol de la victoria
           </p>
 
           <p>
-            ...siempre acabamos juntos ❤️
+            Ahora toca el útlimo reto 🤍
           </p>
 
           <button
+            className="intro-button"
             onClick={() =>{
               if(onWin){
                 onWin();
               }
             }}
             >
-            Siguiente sorpresa 🎁
+            Siguiente prueba
           </button>
 
         </div>

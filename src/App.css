@@ -38,11 +38,7 @@ body{
 
   min-height:100dvh;
 
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    sans-serif;
+  font-family:"Cormorant Garamond",serif;
 
   background:
 
@@ -61,8 +57,8 @@ body{
 
 .container{
 
-  width:92%;
-  max-width:340px;
+  width: 90px;;
+  max-width:300px;
   min-height:88dvh;
 
   padding:24px;
@@ -269,7 +265,7 @@ body{
 
 .quiz-header{
 
-  margin-bottom:18px;
+  margin-bottom:5px;
 
 }
 
@@ -277,7 +273,7 @@ body{
 
   max-width:300px;
 
-  margin:0 auto 18px;
+  margin:0 auto 15px;
 
   color:var(--text-light);
 
@@ -306,6 +302,7 @@ body{
 
 }
 
+
 .progress-bar{
 
   height:100%;
@@ -332,7 +329,7 @@ body{
 
 .quiz-progress{
 
-  margin-bottom:16px;
+  margin-bottom:2px;
 
   color:#8D847E;
 
@@ -404,7 +401,7 @@ body{
 
   width:100%;
 
-  margin:10px 0;
+  margin:0;
 
   padding:15px 18px;
 
@@ -526,7 +523,7 @@ body{
 
   .intro-title{
 
-    font-size:36px;
+    font-size:30px;
 
   }
 
@@ -550,7 +547,7 @@ body{
 
   .quiz-description{
 
-    font-size:13px;
+    font-size:12px;
 
   }
 
@@ -564,15 +561,15 @@ body{
 
   .quiz-question{
 
-    font-size:27px;
+    font-size:22px;
 
   }
 
   .quiz-option{
 
-    padding:13px 14px;
+    padding:10px 14px;
 
-    font-size:14px;
+    font-size:12px;
 
     border-radius:16px;
 
@@ -580,7 +577,7 @@ body{
 
   .progress-container{
 
-    height:7px;
+    height:8px;
 
   }
 
@@ -775,7 +772,7 @@ body{
 
   .puzzleGrid{
 
-    width:324px;
+    width:290px;
 
     grid-template-columns:repeat(4,78px);
 
@@ -805,6 +802,16 @@ body{
 
   }
 
+  .quiz-progress{
+    margin-top: 0;
+    margin-bottom: 2px;
+  }
+
+.progress-container{
+    margin-top: 0;
+    margin-bottom: 8px;
+  }
+
 }
  /* ========================================= */
 /* GAME */
@@ -814,6 +821,20 @@ body{
 .game{
 
   text-align:center;
+
+}
+
+.gameProgress{
+
+    margin-top:6px;
+
+    margin-bottom:18px;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:#6b6460;
 
 }
 
@@ -861,26 +882,20 @@ body{
   position:absolute;
 
   left:0;
-
   bottom:0;
 
   width:100%;
-
-  height:26px;
+  height:28px;
 
   background:
 
-    linear-gradient(
-
-      90deg,
-
-      #E6D6B5,
-
-      #D3BB8B,
-
-      #B79290
-
-    );
+  repeating-linear-gradient(
+  90deg,
+  #444 0px,
+  #444 25px,
+  #555 25px,
+  #555 50px
+  );
 
 }
 
@@ -903,10 +918,10 @@ body{
   background:
 
     linear-gradient(
-
-      rgba(255,255,255,.45),
-
-      transparent
+      180deg,
+    #eef6ff,
+    #dfe9f8,
+    #cfdced
 
     );
 
@@ -925,6 +940,38 @@ body{
   font-size:48px;
 
   filter:drop-shadow(0 6px 12px rgba(0,0,0,.18));
+
+}
+
+.playerPhoto{
+
+  width:60px;
+  height:60px;
+
+  border-radius:50%;
+
+  object-fit:cover;
+
+  border:4px solid white;
+
+  box-shadow:
+    0 5px 15px rgba(0,0,0,.25);
+
+}
+
+@keyframes correr{
+
+    from{
+
+        transform:translateY(0px);
+
+    }
+
+    to{
+
+        transform:translateY(-4px);
+
+    }
 
 }
 
@@ -950,19 +997,33 @@ body{
 
   0%{
 
-    transform:translateY(0);
+  transform:
+  translateY(0)
+  rotate(0deg);
 
   }
 
-  50%{
+  40%{
 
-    transform:translateY(-140px);
+  transform:
+  translateY(-140px)
+  rotate(-10deg);
+
+  }
+
+  60%{
+
+  transform:
+  translateY(-140px)
+  rotate(10deg);
 
   }
 
   100%{
 
-    transform:translateY(0);
+  transform:
+  translateY(0)
+  rotate(0deg);
 
   }
 
@@ -1115,7 +1176,7 @@ body{
 
     width:100%;
 
-    height:185px;
+    height:300px;
 
     border-radius:24px;
 
@@ -1131,12 +1192,46 @@ body{
 
   }
 
+  @media(max-width:700px){
+
+.playerPhoto{
+
+  width:48px;
+  height:48px;
+
+}
+
+@keyframes correr{
+
+    from{
+
+        transform:translateY(0px);
+
+    }
+
+    to{
+
+        transform:translateY(-4px);
+
+    }
+
+}
+
+}
+
   .cactus{
 
     bottom:35px;
 
     font-size:32px;
 
+  }
+
+  .gym{
+
+  font-size:60px;
+
+  margin:20px 0;
   }
 
   .maze{
@@ -1338,8 +1433,236 @@ body{
 
 }
 
-.regalo{
+.finalContainer{
 
-  text-align:center;
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.finalText{
+
+    margin:3px 0;
+
+    color:var(00000);
+
+    line-height:1.7;
+
+    font-weight:600;
+
+    font-size:17px;
+
+    letter-spacing:0.3px;
+
+}
+
+.flipCard{
+
+    margin-top:35px;
+
+    width:300px;
+
+    height:420px;
+
+    perspective:1200px;
+
+}
+
+.flipCardInner{
+
+    position:relative;
+
+    width:100%;
+
+    height:100%;
+
+    transition:transform .9s;
+
+    transform-style:preserve-3d;
+
+}
+
+.flipCard.flip .flipCardInner{
+
+    transform:rotateY(180deg);
+
+}
+
+.flipFront,
+.flipBack{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    border-radius:28px;
+
+    backface-visibility:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:30px;
+
+    box-sizing:border-box;
+
+    background:rgba(255,252,250,.90);
+
+    backdrop-filter:blur(24px);
+
+    border:1px solid rgba(200,169,107,.15);
+
+    box-shadow:
+
+        0 20px 45px rgba(0,0,0,.08),
+
+        inset 0 1px 1px rgba(255,255,255,.9);
+
+}
+
+
+.flipBack{
+
+    transform:rotateY(180deg);
+
+}
+
+.giftIcon{
+
+    font-size:55px;
+
+    margin-bottom:20px;
+
+}
+
+.finalMessage{
+
+    margin-top:20px;
+
+    font-style:italic;
+
+    color:var(--gold);
+
+}
+
+.finalButton{
+
+  margin-top:25px;
+
+  padding:16px 38px;
+
+  border:none;
+
+  border-radius:999px;
+
+  cursor:pointer;
+
+  color:white;
+
+  font-size:15px;
+
+  font-weight:600;
+
+  letter-spacing:2px;
+
+  text-transform:uppercase;
+
+  background:
+    linear-gradient(
+      135deg,
+      #E6D5AF,
+      #C8A96B 60%,
+      #A98585
+    );
+
+  box-shadow:
+    0 12px 24px rgba(169,133,133,.20);
+
+  transition:.35s;
+
+}
+
+.finalButton:hover{
+
+  transform:translateY(-3px);
+
+}
+
+.fotoEntradas{
+
+    width:100%;
+
+    max-width:230px;
+
+    border-radius:18px;
+
+    margin-top:15px;
+
+    box-shadow:
+
+        0 15px 35px rgba(0,0,0,.15);
+
+}
+
+.flipTitle{
+    color: var(--gold) !important;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 34px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.controles{
+
+    margin-top:25px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+}
+
+.filaControles{
+
+    display:flex;
+    gap:12px;
+    margin-top:12px;
+
+}
+
+.controlButton{
+
+    width:65px !important;
+    height:65px;
+
+    padding:0 !important;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:28px;
+    font-weight:700;
+
+}
+
+.controlButton{
+
+    width:60px !important;
+    height:60px;
+
+    font-size:26px;
 
 }

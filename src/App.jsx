@@ -9,12 +9,12 @@ import entradas from "./assets/entrada2.png";
 
 const preguntas = [
   {
-    pregunta: "¿Cómo se llama el primer álbum que saco Roa",
+    pregunta: "¿Cómo se llama el primer álbum que saco Roa?",
     correcta: "Private Suite, Vol.1",
     opciones: ["Private Suite, Vol.2", "Private Suite, Vol.1", "PRIVATE SUITE (Complete EP Edition)", "Private Suite, Vol.1.1"],
   },
   {
-    pregunta: "¿Qué canción no está en Real Hasta la Muerte de Anuel AA",
+    pregunta: "¿Qué canción no está en Real Hasta la Muerte de Anuel AA?",
     correcta: "Me Siento HP",
     opciones: ["Hipócrita", "Me Siento HP", "Quiere Beber", "Yeezy"],
   },
@@ -29,19 +29,19 @@ const preguntas = [
     opciones: ["2016", "2017", "2018", "2019"],
   },  
   {
-    pregunta: "¿Cuál es la capital de Austria",
+    pregunta: "¿Cuál es la capital de Austria?",
     correcta: "Viena",
     opciones: ["Canberra", "Riga", "Vilna", "Viena"],
   },
   {
-    pregunta: "¿A que país pertenece Ottawa",
+    pregunta: "¿A que país pertenece Ottawa?",
     correcta: "Canadá",
     opciones: ["Canadá", "EEUU", "Groelandia", "Gatineau"],
   },
   {
     pregunta: "¿Dónde fue nuestro primer beso?",
     correcta: "Banco",
-    opciones: ["Banco", "Playa", "Parque", "Restaurante"],
+    opciones: ["Banco", "Coche", "Parque", "Cine"],
   },
   {
     pregunta: "Nuestro primer viaje juntos fue a...",
@@ -89,7 +89,7 @@ function App() {
 
   const responder = (respuesta) => {
     if (respuesta === preguntas[preguntaActual].correcta) {
-      setMensaje("💛 ¡CORRECTO MI AMOR! 💛");
+      setMensaje("¡CORRECTO MI AMOR! 👏🏼");
 
       setTimeout(() => {
         setMensaje("");
@@ -104,7 +104,7 @@ function App() {
         }
       }, 900);
     } else {
-      setMensaje("💔 Inténtalo otra vez");
+      setMensaje("🤨 Inténtalo otra vez");
     }
   };
 
@@ -170,7 +170,7 @@ function App() {
           </p>
 
           <p className="intro-description">
-            Cada prueba te acercará un poco más al final
+            Cada prueba te acercará un poco más al final.
             Solo cuando superes todas descubrirás qué te espera
           </p>
 
@@ -200,18 +200,15 @@ function App() {
           <div className="intro-line"></div>
 
           <p className="quiz-description">
-            El camino hacia tu regalo comienza aquí
-          </p>
-
-          <p className="quiz-description">
-            Cada respuesta correcta te acercará un poco más al final
+            El reto comienza aquí... Cada respuesta correcta te acercará un poco más al final
           </p>
 
         </div>
 
-        <p className="quiz-progress">
-          {progreso}%
-        </p>
+          <p className="quiz-progress">
+            {progreso}%
+          </p>
+        
 
         <div className="progress-container">
           <div
@@ -249,7 +246,7 @@ function App() {
     if (pantalla === "puzzle") {
     return (
       <div className="container">
-        <h1>🧩 Puzzle del Amor</h1>
+        <h1>Segunda Prueba: Puzzle</h1>
 
         <div className="progress-container">
           <div
@@ -304,7 +301,7 @@ function App() {
           <div className="puzzleFinal">
 
             <p>
-              💛 Has reconstruido uno de nuestros recuerdos favoritos 💛
+              🤎 Has reconstruido uno de nuestros recuerdos favoritos 🤎
             </p>
 
             <img
@@ -314,6 +311,7 @@ function App() {
             />
 
             <button
+              className="intro-button"
               onClick={() => {
                 setPantalla("dino");
               }}
@@ -329,9 +327,8 @@ function App() {
   if (pantalla === "dino") {
     return (
       <div className="container">
-        <h1>🏃 El camino hacia ella </h1>
-        <h1> 💛 💛 💛 </h1>
-
+        <h1>Tercera Prueba: Carrera </h1>
+        
         <div className="progress-container">
           <div
             className="progress-bar"
@@ -340,13 +337,11 @@ function App() {
             }}
           ></div>
         </div>
-
-        <p>
+        <p className="gameProgress">
           {dinoCompletado
-            ? "60% completado ❤️"
-            : "40% completado ❤️"}
+            ? "60% completado"
+            : "40% completado"}
         </p>
-
         <DinoGame
           onWin={() => {
             setDinoCompletado(true);
@@ -360,7 +355,7 @@ function App() {
   if (pantalla === "maze") {
     return (
       <div className="container">
-        <h1>❤️ Encuéntrame ❤️</h1>
+        <h1>Cuarta Prueba: GOOL</h1>
 
         <div className="progress-container">
           <div
@@ -373,8 +368,8 @@ function App() {
 
         <p>
           {mazeCompletado
-            ? "80% completado ❤️"
-            : "60% completado ❤️"}
+            ? "80% completado"
+            : "60% completado"}
         </p>
 
         <MazeGame
@@ -391,7 +386,7 @@ function App() {
     return (
       <div className="container">
 
-        <h1>❤️ Atrapa mi amor ❤️</h1>
+        <h1>Quinta Prueba: Nuestros momentos</h1>
 
         <div className="progress-container">
           <div
@@ -404,8 +399,8 @@ function App() {
 
         <p>
           {heartCompletado
-            ? "100% completado ❤️"
-            : "80% completado ❤️"}
+            ? "100% completado"
+            : "80% completado"}
         </p>
 
         <HeartRainGame
@@ -428,7 +423,7 @@ function App() {
 
     <div className="container">
 
-      <h1>🎁 Regalo Final 🎁</h1>
+      <h1></h1>
 
       <div className="progress-container">
 

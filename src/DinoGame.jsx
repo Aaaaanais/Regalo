@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import novio from "./assets/novio.png";
 
 export default function DinoGame({ onWin}) {
   const [jumping, setJumping] = useState(false);
@@ -63,8 +64,8 @@ export default function DinoGame({ onWin}) {
 
     const collision = setInterval(() => {
       const cactusEnZona =
-        cactusX > PLAYER_X + 5 &&
-        cactusX < PLAYER_X + 35;
+        cactusX > PLAYER_X + 18 &&
+        cactusX < PLAYER_X + 28;
 
       if (cactusEnZona && !jumping) {
         setGameOver(true);
@@ -92,7 +93,7 @@ export default function DinoGame({ onWin}) {
   return (
     <div className="game">
       
-      <p>💔 Obstáculos superados: {cactusCount}/10</p>
+      <p>🥊 Obstáculos superados: {cactusCount}/10</p>
 
       <p>Toca la pantalla para saltar</p>
 
@@ -105,7 +106,7 @@ export default function DinoGame({ onWin}) {
         }}
       >
         <div className={`jugador ${jumping ? "salto" : ""}`}>
-          🧍
+          <img src={novio} alt="Jugador" className="playerPhoto" />
         </div>
 
         {!win && (
@@ -113,7 +114,7 @@ export default function DinoGame({ onWin}) {
             className="cactus"
             style={{ left: cactusX }}
           >
-            🌵
+            🥊
           </div>
         )}
 
@@ -134,18 +135,25 @@ export default function DinoGame({ onWin}) {
         {win && (
           <div className="win">
             <h2>
-              ❤️ Después de todos los obstáculos siempre acabas encontrándome ❤️
+              ¡Conseguido mi peque!
             </h2>
+            <div className="gym">
+              --    
+            </div>
 
-            
+            <div className="gym">
+              🥊 I 🥇
+            </div>
+
             <button
+                className="intro-button"
                 onClick={() => {
                     if (onWin) {
                         onWin()
                     }
                   }}
             >
-                Siguiente minijuego ❤️
+                Siguiente prueba
             </button>
 
           </div>

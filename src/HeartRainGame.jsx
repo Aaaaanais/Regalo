@@ -13,12 +13,22 @@ export default function HeartRainGame({ onComplete, onWin }) {
 
     const intervalo = setInterval(() => {
 
+      const buenos = ["🎾","🎱","🏓","🏸","🏋🏼","🚴🏼"];
+      const malos = ["🏀","🏈","🏒","🏇🏼","🛼","🎡","🏀","🏈","🏒","🏇🏼","🛼","🎡"];
+
+      const esBueno = Math.random() < 0.4;
+
       const nuevo = {
         id: Date.now() + Math.random(),
         x: Math.random() * 90,
         y: -10,
-        velocidad: 0.5 + Math.random() * 0.5,
-        bueno: Math.random() < 1.5
+        velocidad: esBueno
+          ? 1 + Math.random()*0.8
+          : 0.6 + Math.random()*0.5,
+        bueno: esBueno,
+        emoji: esBueno
+          ? buenos[Math.floor(Math.random()*buenos.length)]
+          : malos[Math.floor(Math.random()*malos.length)]
       };
 
       setCorazones((anteriores) => [...anteriores, nuevo]);
@@ -87,8 +97,8 @@ export default function HeartRainGame({ onComplete, onWin }) {
     <div>
 
 
-      <h3>Puntos: {puntos}/10</h3>
-
+      <h3>¿Recuerdas todo lo que hemos hecho juntos? ❤️</h3>
+      <p>{puntos}/10</p>
       <div className="heartArea">
 
         {corazones.map((corazon) => (
@@ -107,7 +117,7 @@ export default function HeartRainGame({ onComplete, onWin }) {
               pulsarCorazon(corazon.id, corazon.bueno)
             }
           >
-            {corazon.bueno ? "❤️" : "💔"}
+            {corazon.emoji}
           </div>
 
         ))}
@@ -118,11 +128,12 @@ export default function HeartRainGame({ onComplete, onWin }) {
 
         <div className="win">
 
-          <h2>❤️ ¡Has reunido todo mi amor! ❤️</h2>
+          <h2>¡Has recordado todos nuestros momentos!</h2>
 
-          <p>Ya has superado todas las pruebas.</p>
+          <p>Ya estas preparado para descubrir tu regalo</p>
 
           <button
+            className="intro-button"
             onClick={() => {
               if (onWin) {
                 onWin();

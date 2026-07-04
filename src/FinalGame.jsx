@@ -7,49 +7,77 @@ export default function FinalGame() {
 
   return (
 
-    <div className="finalGame">
+    <div className="finalContainer">
 
-      <h1>❤️ Lo has conseguido ❤️</h1>
+      <h1 className="intro-title">
+        Lo has conseguido!!!
+      </h1>
 
-      {!abierto ? (
+      <div className="intro-line"></div>
 
-        <>
+      <p className="finalText">
+        Has superado todas las pruebas...
+      </p>
 
-          <h2>🎁</h2>
+      <p className="finalText">
+        Cada respuesta,
+      </p>
 
-          <p>
-            Has superado todas las pruebas.
-          </p>
+      <p className="finalText">
+        cada recuerdo
+      </p>
 
-          <p>
-            Solo queda abrir tu regalo...
-          </p>
+      <p className="finalText">
+        y cada reto
+      </p>
 
-          <button
-            onClick={() => setAbierto(true)}
-          >
-            Abrir regalo 🎁
-          </button>
+      <p className="finalText">
+        te han traído hasta aquí
+      </p>
 
-        </>
+      <div className={`flipCard ${abierto ? "flip" : ""}`}>
 
-      ) : (
+        <div className="flipCardInner">
 
-        <div className="regalo">
+          {/* Cara delantera */}
 
-          <h1>🎉 ¡SORPRESA! 🎉</h1>
+          <div className="flipFront">
 
-          <p>Prepárate para nuestra próxima aventura... ❤️</p>
+            <h2 className="flipTitle">
+              Ahora solo queda descubrir tu regalo
+            </h2>
 
-          <img
-            src={entradas}
-            alt="Entradas"
-            className="fotoEntradas"
-          />
+            <button
+              className="intro-button"
+              onClick={() => setAbierto(true)}
+            >
+              ABRIR
+            </button>
+
+          </div>
+
+          {/* Cara trasera */}
+
+          <div className="flipBack">
+
+            <h2 className="flipTitle">
+              ❤️ Sorpresa ❤️
+            </h2>
+
+            <img
+              src={entradas}
+              className="fotoEntradas"
+            />
+
+            <p className="finalMessage">
+              Espero que disfrutes muchísimo este día
+            </p>
+
+          </div>
 
         </div>
 
-      )}
+      </div>
 
     </div>
 
